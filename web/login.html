@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Page</title>
+  <style>
+    body { 
+        background-color: burlywood;
+        font-family: Arial; 
+        text-align: center; 
+        margin-top: 50px;
+     }
+    form{
+      color: rgb(1, 8, 14);
+    text-align:center;
+    background-color: aqua;
+    padding: 20px;
+    margin-left: 400px;
+    width: 600px;
+    }
+    input, button { 
+        margin: 8px 0; 
+        padding: 8px; 
+        width: 100%;
+     }
+    button {
+         background: dodgerblue; 
+         color: white; 
+         border: none; 
+         cursor: pointer; 
+    }
+  </style>
+</head>
+<body>
+  <h2>Login</h2>
+  <form>
+    <label>Full Name:</label>
+    <input type="text" required>
+  
+    <label>Email:</label>
+    <input type="email" required>
+    
+    <label>Password:</label>
+    <input type="password" required>
+    
+    <label>Date of Birth:</label>
+    <input type="date" required>
+    
+    <label>Phone:</label>
+    <input type="tel" pattern="[0-9]{10}" required>
+    
+    <label><input type="checkbox" required> I agree to terms</label>
+    
+    <button type="submit">Submit</button>
+  </form>
+</body>
+</html>
