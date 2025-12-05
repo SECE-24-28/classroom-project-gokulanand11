@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Job Application Form </title>
+    <style>
+    body { 
+        background-color:lavenderblush;
+        font-family: Arial; 
+        text-align: center; 
+        margin-top: 50px;
+     }
+    form{
+        color: rgb(1, 8, 14);
+        text-align:left;
+        background-color: aqua;
+        padding: 20px;
+        margin-left: 400px;
+        width: 600px;
+    }
+    input, button { 
+        margin: 8px 0; 
+        padding: 8px; 
+        width: 100%;
+     }
+    button {
+         background: dodgerblue; 
+         color: white; 
+         border: none; 
+         cursor: pointer; 
+    }
+    </style>
+    </head>
+    <body>
+        <h1>Job Application Form</h1>
+        <form>
+            <label for name>NAME:</label>
+            <input type="text" required pattern="[A-za-z\s]+" title="Letters and spaces are only allowed"><br><br>
+            <label for email>EMAIL:</label>
+            <input type="email" required><br><br>
+            <label for DOB>DOB:</label>
+            <input type="date" required><br><br>
+            <label for number>MOBILE NUMBER:</label>
+            <input type="tel" required pattern="[0-9]{10}"><br><br>
+            <label for="resume">Upload Resume:</label>
+            <input type="file" accept=".pdf,.doc,.docx" required><br><br>
+            <input type="submit" value="Submit Application">
+
+        </form>
+        <script>
+            document.getElementById("jobForm").addEventListener("submit", function(event) {
+            let valid = true;
+            const email = document.getElementById("email").value;
+            const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+            if (!emailPattern.test(email)) {
+                document.getElementById("emailError").textContent = "Invalid email format.";
+                valid = false;
+            }else{
+                document.getElementById("emailError").textContent = "";
+            }
+            const dob=new Date(document.getElementById("dob").value);
+            const today=new Date();
+            const age=today.getFullYear() - dob.getFullYear();
+            const m=today.getMonth() - dob.getMonth();
+            if(m<0||(m===0&&today.getDate()<dob.getDate())){
+                age--;
+            }
+            if(age<18){
+                document.getElementById("dobError").textContent = "You must be at least 18 years old.";
+                valid=false;
+            }else{
+                document.getElementById("dobError").textContent = "";
+            }
+        </script>
+    </body>
+</html>
